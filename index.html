@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <title>Selamat Ulang Tahun, Gaby!</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    </head>
+    <body>
+        <button id="playButton" class="play-button">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="play-icon"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z"
+                    clip-rule="evenodd"
+                />
+            </svg>
+        </button>
+        <div class="message" style="display: none">
+            <p class="animate-text">
+                Hari ini adalah hari yang spesial bagimu!
+            </p>
+            <p class="animate-text">
+                Ada banyak orang yang mengucapi kamu dan aku mau jadi salah satu
+                diantaranya, bahkan ingin menjadi yang pertama buat kamu
+            </p>
+            <p class="animate-text">
+                Aku hanya bisa memberikan hadiah kecil dan kalimat sederhana,
+                yang dibuat dengan perasaan yang luar biasa.
+            </p>
+            <p class="animate-text">
+                Ada memori indah yang tersimpan di galeri, catatan, dan kepalaku
+                sendiri
+            </p>
+            <p class="animate-text">
+                Berharap yang terbaik untukmu, aku berdoa untuk itu
+            </p>
+            <p class="animate-text">Get every single thing that you deserve</p>
+            <p class="animate-text">Become the person that you want to be</p>
+            <p class="animate-text">May your all soons come to finally</p>
+            <p class="animate-text">Happy Birthday, Gaby!</p>
+        </div>
+        <audio
+            id="birthdaySong"
+            src="./asset/Romantic Birthday.mp3"
+            loop
+        ></audio>
+        <style>
+        </style>
+        <script>
+            const playButton = document.getElementById("playButton");
+            const message = document.querySelector(".message");
+            const birthdaySong = document.getElementById("birthdaySong");
+
+            playButton.addEventListener("click", () => {
+                playButton.style.display = "none";
+                message.style.display = "block";
+                birthdaySong.play();
+
+                anime.timeline({ loop: false }).add({
+                    targets: ".animate-text",
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    easing: "easeOutExpo",
+                    duration: 1200,
+                    delay: (el, i) => 300 + 30 * i,
+                });
+            });
+        </script>
+    </body>
+</html>

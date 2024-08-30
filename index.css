@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Crimson+Text:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(to bottom right, #db2777, #22d3ee);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.message {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 32px;
+    font-size: 28px;
+    width: 60%;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    font-family: 'Crimson Text', serif;
+}
+
+.play-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-icon {
+    width: 128px;
+    height: 128px;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .message {
+        width: 90%;
+        font-size: 22px;
+    }
+
+    .play-icon {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .message {
+        width: 95%;
+        font-size: 18px;
+    }
+
+    .play-icon {
+        width: 72px;
+        height: 72px;
+    }
+}
