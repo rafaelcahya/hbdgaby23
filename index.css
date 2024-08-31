@@ -33,21 +33,23 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: none;
-    border: none;
+    width: 96px;
+    height: 96px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 16px;
+    border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .play-button:hover {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-.play-icon {
-    width: 128px;
-    height: 128px;
-    color: #ffffff;
+.play-button svg{
+    color: white;
+    fill: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -55,21 +57,11 @@ body {
         width: 90%;
         font-size: 22px;
     }
-
-    .play-icon {
-        width: 96px;
-        height: 96px;
-    }
 }
 
 @media screen and (max-width: 480px) {
     .message {
         width: 95%;
         font-size: 18px;
-    }
-
-    .play-icon {
-        width: 72px;
-        height: 72px;
     }
 }
