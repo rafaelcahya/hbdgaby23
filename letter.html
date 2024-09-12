@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <title>Surat untuk Gaby</title>
+        <script src="https://unpkg.com/preact@10.5.13/dist/preact.min.js"></script>
+        <script src="https://unpkg.com/preact@10.5.13/hooks/dist/hooks.umd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module">
+            const { h, render, Component } = preact;
+            const { useState, useEffect } = preactHooks;
+
+            function Letter() {
+                useEffect(() => {
+                    const savedTime = localStorage.getItem("audioTime");
+                    const audio = document.getElementById("birthdaySong");
+
+                    if (savedTime) {
+                        audio.currentTime = parseFloat(savedTime);
+                    }
+
+                    audio.play();
+
+                    anime.timeline({ loop: false }).add({
+                        targets: ".animate-text",
+                        opacity: [0, 1],
+                        translateY: [20, 0],
+                        easing: "easeOutExpo",
+                        duration: 1200,
+                        delay: (el, i) => 300 + 30 * i,
+                    });
+
+                    return () => {
+                        localStorage.setItem("audioTime", audio.currentTime);
+                    };
+                }, []);
+
+                return h("div", { class: "message" }, [
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Disini aku memposisikan diri aku sebagai mantan"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Oiyaa sebelum aku ngomong, kamu bisa terima kado ini. Buat bisa dapetin kado ini aja, aku engga masuk rumah sakit aja dah bersyukur hehehe"
+                    ),
+                    h("p", { class: "animate-text" }, "Kamu tau aku keras sama diri aku sendiri. Walaupun ada kesibukan lain aku tetap pengen yang lain. Salah satunya kamu"),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Aku pernah ceritakan yang sepotong potong sehari sekali, aku cerita kalo kepala aku kenceng karena aku mikirin banyak hal. Salah satunya itu kamu. Tapi apa daya chat aku selalu di bales sehari sekali. Jujur itu bikin sakit hati, aku harus selalu menenangkan diri aku sendiri untuk memulai chat sama kamu. Tapi ternyata masih di cuekin..."
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Kamu pernah bilang coba deketin kamu lewat chat. Tapi itu omong kosong. Kamu tau sendiri aku susah buat chat. Tapi aku coba terus nyatanya tetep ga bisa. Aku sampa tanya temen gimana cara PDKT cewe. aku juga sampe search di Google sampe begadang menyusun rencana. Hasilnya adalah aku makin di cuekin."
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Dulu kamu pernah bilang kali kita putus dan aku mau cerita kamu mau respon. Tapi nyatanya tidak demikian.."
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Yang ada aku yang selalu excited sendirian..."
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Bahkan aku minta tolong aja, balesnya besoknya"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Kalo kamu tanya apakah aku capek? Ya jawabannya pasti capek. Aku juga punya kesibukan lain"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Ga hanya capek, bahkan aku sampe sakit karena mikir harus gimana lagi caranya. Untuk memulai chat lagi aku harus slowdown pikiran aku"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Kamu selalu membandingkan diri kamu sama aku. Seolah olah kamu yang merasa paling capek. Kalo kamu bilang capek, apalagi aku yang capek, sakit dan ga mikirin diri aku sendiri"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Aku menghargai kamu sebagai mantan dan teman tapi aku juga perlu menghargai diri aku sendiri"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Ya untungnya aku masih punya sisi lain dari diri aku yang selalu nyemangatin diri aku, yang selalu meredam capek dan sakit hati"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Aku selalu bergerak dalam diam, effort yang aku lakuin, engga akan bisa kamu liat"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Mungkin aku egois, aku mau di respon, aku mau diapain dll, tapi yang jadi topik adalah bukan itu, melainkan kepedulian"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Mungkin aku egois, aku mau di respon, aku mau diapain dll, tapi yang jadi topik adalah bukan itu, melainkan kepedulian"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Aku pernah cerita soal sakit kepala aku sampe aku konsultasi ke dokter karena aku keras sama diri aku sendiri. Semua tuntutan dan keinginan selalu datang bersamaan dipikiran aku dengan gejala awal vertigo. Salah 1 nya adalah kamu. Namun itu sia sia, bahkan yang aku dapet cman kecewa dan sakit hati."
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Kata temenku, aku terlalu berlebihan buat bisa balikan sama kamu lagi. Dan aku tidak memperdulikan omongan itu"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Setelah ada hal yang bikin aku sadar bahwa aku berlebihan.. Aku mau menyayangi diri aku sendiri kembali"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Ntah apa yang bikin kamu terlalu tinggi sampai kamu lupa ada orang yang yang ga mikirin dirinya sendiri. Yang kamu tau hanya lelahmu saja tanpa tau gimana lelah dan sakitnya orang lain, yang sabar menghadapi sikap dan mood kamu"
+                    ),
+					h("p", { class: "animate-text" }, "✝"),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Sebab sekarang aku tidak mau melihat kamu hanya sepintas lalu saja. Aku harap dapat tinggal agak lama dengan kami, jika diperkenankan Tuhan"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "Banyak kesempatan bagiku untuk mengerjakan pekerjaan yang besar dan penting, sekalipun ada banyak penentang"
+                    ),
+                    h(
+                        "p",
+                        { class: "animate-text" },
+                        "You say you love rain, but you use an umbrella to walk under it"
+                    ),
+					h("p", { class: "animate-text" }, "✝"),
+					h("p", { class: "animate-text" }, "Aku mau menyayangi diri aku lagi"),
+                    h("audio", {
+                        id: "birthdaySong",
+                        src: "./asset/song2.mp3",
+                        loop: true,
+                    }),
+                ]);
+            }
+
+            render(h(Letter), document.getElementById("app"));
+        </script>
+    </body>
+</html>

@@ -6,73 +6,158 @@
         <link rel="stylesheet" href="index.css" />
         <title>Selamat Ulang Tahun, Gaby!</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="https://unpkg.com/preact@10.5.13/dist/preact.min.js"></script>
+        <script src="https://unpkg.com/preact@10.5.13/hooks/dist/hooks.umd.js"></script>
     </head>
     <body>
-        <span id="playButton" class="play-button">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
-                />
-            </svg>
-        </span>
-        <div class="message" style="display: none">
-            <p class="animate-text">
-                Hari ini adalah hari yang spesial bagimu!
-            </p>
-            <p class="animate-text">
-                Ada banyak orang yang mengucapi kamu dan aku mau jadi salah satu
-                diantaranya, bahkan ingin menjadi yang pertama buat kamu
-            </p>
-            <p class="animate-text">
-                Aku hanya bisa memberikan hadiah kecil dan kalimat sederhana,
-                yang dibuat dengan perasaan yang luar biasa.
-            </p>
-            <p class="animate-text">
-                Ada memori indah yang tersimpan di galeri, catatan, dan kepalaku
-                sendiri
-            </p>
-            <p class="animate-text">
-                Berharap yang terbaik untukmu, aku berdoa untuk itu
-            </p>
-            <p class="animate-text">Get every single thing that you deserve</p>
-            <p class="animate-text">Become the person that you want to be</p>
-            <p class="animate-text">May your all soons come to finally</p>
-            <p class="animate-text">Happy Birthday, Gaby!</p>
-        </div>
-        <audio
-            id="birthdaySong"
-            src="./asset/Romantic Birthday.mp3"
-            loop
-        ></audio>
-        <style></style>
-        <script>
-            const playButton = document.getElementById("playButton");
-            const message = document.querySelector(".message");
-            const birthdaySong = document.getElementById("birthdaySong");
+        <div id="app"></div>
+        <script type="module">
+            const { h, render, Component } = preact;
+            const { useState, useEffect } = preactHooks;
 
-            playButton.addEventListener("click", () => {
-                playButton.style.display = "none";
-                message.style.display = "block";
-                birthdaySong.play();
+            function App() {
+                const [showMessage, setShowMessage] = useState(false);
+                const [isPlaying, setIsPlaying] = useState(false);
 
-                anime.timeline({ loop: false }).add({
-                    targets: ".animate-text",
-                    opacity: [0, 1],
-                    translateY: [20, 0],
-                    easing: "easeOutExpo",
-                    duration: 1200,
-                    delay: (el, i) => 300 + 30 * i,
-                });
-            });
+                useEffect(() => {
+                    if (showMessage) {
+                        anime.timeline({ loop: false }).add({
+                            targets: ".animate-text",
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            easing: "easeOutExpo",
+                            duration: 1200,
+                            delay: (el, i) => 300 + 30 * i,
+                        });
+                    }
+                }, [showMessage]);
+
+                const handlePlay = () => {
+                    const audio = document.getElementById("birthdaySong");
+                    audio.play();
+                    setShowMessage(true);
+                    setIsPlaying(true);
+                };
+
+                const handleReadMore = (e) => {
+                    e.preventDefault();
+                    const audio = document.getElementById("birthdaySong");
+                    localStorage.setItem("audioTime", audio.currentTime);
+                    window.location.href = "letter.html";
+                };
+
+                return h("div", null, [
+                    showMessage &&
+                        h("div", { class: "message" }, [
+                            h("p", { class: "animate-text" }, "✝"),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Hari ini adalah hari yang spesial bagimu!"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Ada banyak orang yang mengucapi kamu dan aku mau jadi salah satu diantaranya, bahkan ingin menjadi yang pertama buat kamu"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Aku hanya bisa memberikan hadiah kecil dan kalimat sederhana, yang dibuat dengan perasaan yang luar biasa."
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Ada memori indah yang tersimpan di galeri, catatan, dan kepalaku sendiri"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Berharap yang terbaik untukmu, aku berdoa untuk itu"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Get every single thing that you deserve"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Become the person that you want to be"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "May your all soons come to finally"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Happy Birthday, Gaby!"
+                            ),
+                            h("p", { class: "animate-text" }, "✝"),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Pada hari Minggu 15 September 2024.."
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Aku langitkan semua doa terbaikku untukmu"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Semoga hal-hal yang membuatmu lelah menjadi ringan"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Semoga duniamu selalu menjaga dimanapun kamu berada"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Semoga harimu dipenuhi bahagia tiada batas"
+                            ),
+                            h(
+                                "p",
+                                { class: "animate-text" },
+                                "Dan semoga senyum kedua orangtua yang kamu harapkan pelan-pelan akan terlihat"
+                            ),
+                            h("p", { class: "animate-text" }, "Amin.."),
+                            h("p", { class: "animate-text" }, "✝"),
+                            h("p", { class: "animate-text" }, "Ada lagi yang mau aku ucapin, klik aja dibawah ini"),
+                            h("p", { class: "animate-text" }, [
+                                h(
+                                    "a",
+                                    {
+                                        href: "letter.html",
+                                        id: "readMoreButton",
+                                        class: "read-more-button",
+                                        onClick: handleReadMore,
+                                    },
+                                    [
+                                        "Baca lagi yuk",
+                                    ]
+                                ),
+                            ]),
+                        ]),
+                    !isPlaying && h("div", { class: "play-button", onClick: handlePlay },
+                        h("svg", { width: "96", height: "96", viewBox: "0 0 24 24" },
+                            h("path", { d: "M8 5v14l11-7z", fill: "currentColor" })
+                        )
+                    ),
+                    h("audio", {
+                        id: "birthdaySong",
+                        src: "./asset/song2.mp3",
+                        loop: true,
+                    }),
+                ]);
+            }
+
+            render(h(App), document.getElementById("app"));
         </script>
     </body>
 </html>
