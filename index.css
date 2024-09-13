@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Crimson+Text:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
 
 body {
-    background: linear-gradient(to bottom right, #db2777, #22d3ee);
+    background: linear-gradient(to bottom left, rgb(240, 229, 251), rgb(255, 255, 255), rgb(255 247 237));
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -15,17 +15,16 @@ body {
     z-index: 10;
     text-align: center;
     margin: 0 auto;
-    padding-top: 32px;
-    font-size: 28px;
+    padding: 50px 0;
+    font-size: 18px;
     width: 60%;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: rgb(75 85 99);
 }
 
 .animate-text {
     opacity: 0;
     transform: translateY(20px);
-    font-family: "Crimson Text", serif;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 .play-button {
@@ -35,7 +34,7 @@ body {
     transform: translate(-50%, -50%);
     width: 96px;
     height: 96px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(10px);
     padding: 16px;
     border-radius: 50%;
@@ -48,40 +47,44 @@ body {
 }
 
 .play-button svg {
-    color: white;
-    fill: white;
+    color: rgb(107 114 128);
+    fill: rgb(107 114 128);
 }
 
 @media screen and (max-width: 768px) {
     .message {
         width: 90%;
-        font-size: 22px;
+        font-size: 18px;
+        text-align: left;
+        padding: 50px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .message {
         width: 95%;
-        font-size: 18px;
+        font-size: 16px;
+        text-align: left;
+        padding: 50px 10px;
     }
 }
 
 .read-more-button {
     color: white;
     text-decoration: none;
-    background-color: #db2777;
+    background-color: rgb(249 115 22);
     padding: 12px 24px;
-    font-size: 18px;
-    border-radius: 25px;
+    font-size: 14px;
+    border-radius: 18px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 .read-more-button:hover {
-    background-color: #be185d;
+    background-color: rgb(251 146 60);
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -89,4 +92,8 @@ body {
 .read-more-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mb{
+    margin-bottom: 100px;
 }
