@@ -94,3 +94,11 @@ body {
 .mb{
     margin-bottom: 80px;
 }
+
+.text-lg{
+    font-size: 44px;
+}
+
+.italic{
+    font-style: italic;
+}
